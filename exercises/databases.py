@@ -1,5 +1,5 @@
 from model import Base, Student
-
+import random
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -60,3 +60,21 @@ def query_by_id(student_id):
     student = session.query(Student).filter_by(
         student_id=student_id).first()
     return student
+
+cap_con = ["B", "D", "F", "G", "J", "K", "L", "M", "N", "P", "R", "S", "Sh", "T", "V", "Z"]
+con = ["b", "d", "f", "g", "j", "k", "l", "m", "n", "p", "r", "s", "sh", "t", "v", "z"]
+vow = ["a", "e", "o", "i", "u"]
+
+def random_name():
+	bloop = random.randint(0,3)
+	if bloop == 0:
+		return random.choice(cap_con) + random.choice(vow)
+	if bloop == 1:
+		return random.choice(cap_con) + random.choice(vow) + random.choice(con)
+	if bloop == 2:
+		return random.choice(cap_con) + random.choice(vow) + random.choice(con) + random.choice(vow)
+	else:
+		return random.choice(cap_con) + random.choice(vow) + random.choice(con) + random.choice(vow) + random.choice(con)
+
+for i in range(100):
+	add_student(random_name(), random.randint(1975,2005), random.choice([True, False]))

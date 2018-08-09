@@ -7,10 +7,12 @@
 </head>
 <body>
     <h1>Welcome to the home page!</h1>
-
+    <a href="{{ url_for('add_student_route') }}">
+    Add a student</a>
 
     <hr>
-    
+    <br>
+     <h2>Students</h2>
     {% for student in students %}
     <p>
 	    Name: <a href="{{url_for('display_student', student_id=student.student_id)}}">{{student.name}}</a><br>
