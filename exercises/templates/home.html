@@ -3,10 +3,12 @@
 <head>
     <title>Home</title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='infinity_symbol.png')}}">
 </head>
 <body>
     <h1>Welcome to the home page!</h1>
-    
+
+
     <hr>
     
     {% for student in students %}
